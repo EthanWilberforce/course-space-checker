@@ -10,6 +10,7 @@ unset($urls[sizeof($urls) - 1]);
 unset($emails[sizeof($emails) - 1]);
 unset($courses[sizeof($courses) - 1]);
 
+$headers = "From: ubcsc@ethanw.ca" . "\r\n" ;
 //Check through $urls array for classes with available spots
 for ($x = 0; $x < sizeof($urls); $x++) {
   //get html contents
@@ -23,8 +24,11 @@ for ($x = 0; $x < sizeof($urls); $x++) {
   //Check if spots > 0
   if ($spots > 0){
     //send email saying space is available
-    mail($emails[$x], $courses[$x] . " has seats available!", "Click the
-    link to claim your seat.\n" . $urls[$x]);
+    mail($emails[$x],
+      $courses[$x] . " has seats available!",
+      "Click the link to claim your seat.\n" . $urls[$x] . "\n\n\n" .
+      "Do not reply to this email, this is an unatended mailbox.",
+      $headers);
 
     //unset elements from array
     unset($urls[$x]);
@@ -38,6 +42,10 @@ for ($x = 0; $x < sizeof($urls); $x++) {
     $newurls = fopen("urls","x+");
     $newemails = fopen("emails","x+");
     $newcourses = fopen("courses","x+");
+    //Set file permissions
+    chmod("urls", 0666);
+    chmod("emails", 0666);
+    chmod("courses", 0666);
 
     //Write unused data to files
     foreach ($urls as $url){
