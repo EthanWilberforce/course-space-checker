@@ -23,7 +23,8 @@ for ($x = 0; $x < sizeof($urls); $x++) {
   //Check if spots > 0
   if ($spots > 0){
     //send email saying space is available
-    mail($emails[$x], $courses[$x] . " has seats available!", "Get it now!");
+    mail($emails[$x], $courses[$x] . " has seats available!", "Click the
+    link to claim your seat.\n" . $urls[$x]);
 
     //unset elements from array
     unset($urls[$x]);
