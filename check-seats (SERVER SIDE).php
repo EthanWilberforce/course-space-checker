@@ -49,13 +49,19 @@ for ($x = 0; $x < sizeof($urls); $x++) {
 
     //Write unused data to files
     foreach ($urls as $url){
-      fwrite(fopen("/var/www/ethanw.ca/projects/ubc-space-scraper/urls","a+"), $url . "\n");
+      if (!($urls[$x] == $url)){
+        fwrite(fopen("/var/www/ethanw.ca/projects/ubc-space-scraper/urls","a+"), $url . "\n");
+      }
     }
     foreach ($emails as $email){
-      fwrite(fopen("/var/www/ethanw.ca/projects/ubc-space-scraper/emails","a+"), $email . "\n");
+      if (!($urls[$x] == $url)){
+        fwrite(fopen("/var/www/ethanw.ca/projects/ubc-space-scraper/emails","a+"), $email . "\n");
+      }
     }
     foreach ($courses as $course){
-      fwrite(fopen("/var/www/ethanw.ca/projects/ubc-space-scraper/courses","a+"), $course . "\n");
+      if (!($urls[$x] == $url)){
+        fwrite(fopen("/var/www/ethanw.ca/projects/ubc-space-scraper/courses","a+"), $course . "\n");
+      }
     }
   }
 }

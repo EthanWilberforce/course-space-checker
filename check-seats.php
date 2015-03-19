@@ -34,7 +34,7 @@ for ($x = 0; $x < sizeof($urls); $x++) {
     unset($urls[$x]);
     unset($emails[$x]);
     unset($courses[$x]);
-
+    
     //Delete and create new emails, courses, and course names files
     unlink("urls");
     unlink("emails");
@@ -49,13 +49,19 @@ for ($x = 0; $x < sizeof($urls); $x++) {
 
     //Write unused data to files
     foreach ($urls as $url){
-      fwrite(fopen("urls","a+"), $url . "\n");
+      if (!($urls[$x] == $url)){
+        fwrite(fopen("urls","a+"), $url . "\n");
+      }
     }
     foreach ($emails as $email){
-      fwrite(fopen("emails","a+"), $email . "\n");
+      if (!($urls[$x] == $url)){
+        fwrite(fopen("emails","a+"), $email . "\n");
+      }
     }
     foreach ($courses as $course){
-      fwrite(fopen("courses","a+"), $course . "\n");
+      if (!($urls[$x] == $url)){
+        fwrite(fopen("courses","a+"), $course . "\n");
+      }
     }
   }
 }

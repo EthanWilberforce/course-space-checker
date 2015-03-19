@@ -1,9 +1,18 @@
 * {margin:0px;padding:0px;}
+a {color:inherit;}
 body {
   background:#3ac45f;
   text-align:center;
   color:#3ac45f;
   font-family:'Helvetica Neue';
+  /*background:
+   linear-gradient(
+     rgba(0, 255, 0, 0.45),
+     rgba(0, 255, 0, 0.45)
+   ),
+   url(hall.png);
+   background-size:100% 100%;
+   background-repeat:no-repeat;*/
 }
 input[type=text] {
   border: 5px solid white;
@@ -34,8 +43,6 @@ input[type=submit] {
 .background {
   background:white;
   height:50%;
-  -moz-border-radius: 15px;
-  border-radius: 15px;
   -moz-box-shadow: 0 0 30px 5px darkgreen;
   -webkit-box-shadow: 0 0 30px 5px darkgreen;
 }
@@ -55,4 +62,14 @@ input[type=submit] {
 }
 .left{
   text-align:left;
+}
+.result{
+  margin-top:20px;
+  font: 30px 'Helvetica Neue';
+  color: darkgreen;
+  text-decoration:none;
+  background:white;
+  -moz-box-shadow: 0 0 30px 5px darkgreen;
+  -webkit-box-shadow: 0 0 30px 5px darkgreen;
+  margin-left:20%;
 }
