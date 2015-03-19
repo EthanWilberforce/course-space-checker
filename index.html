@@ -8,13 +8,34 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css"/>
   </head>
   <body>
-      <form method="get" action="new-entry.php">
-        <input type="text" name="name" value="ANTH">
-        <input type="text" name="number" value="100A">
-        <input type="text" name="section" value="004">
-        <input type="text" name="email" value="e@ethanw.ca">
+    <div class="grid-10 Absolute-Center">
+    </div>
+    <div class="grid-50 Absolute-Center container background">
 
-        <input type="submit" value="Submit">
-      </form>
+        <img src="chair.png" width="100px"></img><p class="title">UBC Course Seat Space Checker</p>
+        Type in your course/lab/tutorial information, and we'll let you know if a seat becomes available!<br><br>
+        <form method="get" action="new-entry.php">
+          <div class="grid-20 left">
+            Course
+            <input type="text" name="name" placeholder="ex/CPSC">
+          </div>
+          <div class="grid-20 left">
+            Course #
+            <input type="text" name="number" placeholder="ex/310">
+          </div>
+          <div class="grid-20 left">
+            Section
+            <input type="text" name="section" placeholder="ex/002">
+          </div>
+          <div class="grid-40 left">
+            Email
+            <input type="text" name="email" placeholder="email">
+          </div>
+          <br>
+          <div class="grid-100">
+            <input type="submit" value="Submit">
+          </div>
+        </form>
+    </div>
   </body>
 </html>
