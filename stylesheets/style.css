@@ -5,14 +5,6 @@ body {
   text-align:center;
   color:#3ac45f;
   font-family:'Helvetica Neue';
-  /*background:
-   linear-gradient(
-     rgba(0, 255, 0, 0.45),
-     rgba(0, 255, 0, 0.45)
-   ),
-   url(hall.png);
-   background-size:100% 100%;
-   background-repeat:no-repeat;*/
 }
 input[type=text] {
   border: 5px solid white;
@@ -41,20 +33,21 @@ input[type=submit] {
 }
 
 .background {
+  margin-top: 10px;
   background:white;
-  height:50%;
   -moz-box-shadow: 0 0 30px 5px darkgreen;
   -webkit-box-shadow: 0 0 30px 5px darkgreen;
 }
 .title{
   font:40px 'Helvetica Neue';
   font-weight:bold;
-  text-shadow: 2px 2px darkgreen;
+  text-shadow: 1px 1px darkgreen;
+
 }
 .Absolute-Center {
   margin: auto;
   position: absolute;
-  top: 00; left: 0; bottom: 0; right: 0;
+  top: 0; left: 0; bottom: 0; right: 0;
 }
 .container{
   text-align:center;
@@ -71,5 +64,4 @@ input[type=submit] {
   background:white;
   -moz-box-shadow: 0 0 30px 5px darkgreen;
   -webkit-box-shadow: 0 0 30px 5px darkgreen;
-  margin-left:20%;
 }
