@@ -12,7 +12,6 @@
       &nbsp
     </div>
     <div class="grid-50 container background">
-      <br>
       <p class="title">UBC Course Seat Space Checker</p>
       Type in your course/lab/tutorial information, and we'll let you know if a seat becomes available!<br><br>
         <form method="get" action="new-entry.php">
@@ -26,7 +25,7 @@
           </div>
           <div class="grid-20 tablet-grid-50 left">
             Section
-            <input type="text" name="section" placeholder="ex/002" maxlength="3" pattern=".{3}"   required title="3 characters">
+            <input type="text" name="section" placeholder="ex/L2C" maxlength="3" pattern=".{3}"   required title="3 characters">
           </div>
           <div class="grid-40 tablet-grid-50 left">
             Email
@@ -37,18 +36,21 @@
             <input type="submit" value="Submit">
           </div>
           <br>
-          <div class="grid-60">
-            &nbsp
+          <div class="grid-50 mobile-grid-50 count left">
+            <select name="term">
+              <option value="W">Winter 2014</option>
+              <option valie="W">Winter 2014</option>
+            </select>
           </div>
-          <div class="grid-40 count">
-            <strong>
+          <div class="grid-50 mobile-grid-50 count right">
             <?php
               $totusers = explode("\n", fread(fopen("total","r"), 34217728));
               echo "Users Emailed: $totusers[0]";
             ?>
-            </strong>
           </div>
-          <br>
+          <div class="grid-100">
+            &nbsp
+          </div>
         </form>
     </div>
   </body>

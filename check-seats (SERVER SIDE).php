@@ -30,8 +30,8 @@ for ($x = 0; $x < sizeof($urls); $x++) {
       "Do not reply to this email, this is an unatended mailbox.",
       $headers);
 
-      $tot = explode("\n", fread(fopen("/var/www/ethanw.ca/projects/ubc-space-scraper/total","r"), 34217728));
-      fwrite(fopen("/var/www/ethanw.ca/projects/ubc-space-scraper/total","w"),$tot[0] + 1);
+    $tot = explode("\n", fread(fopen("/var/www/ethanw.ca/projects/ubc-space-scraper/total","r"), 34217728));
+    fwrite(fopen("/var/www/ethanw.ca/projects/ubc-space-scraper/total","w"),$tot[0] + 1);
 
     //unset elements from array
     unset($urls[$x]);
