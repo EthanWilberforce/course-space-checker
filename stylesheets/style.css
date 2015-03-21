@@ -38,6 +38,12 @@ input[type=submit] {
   -moz-box-shadow: 0 0 30px 5px darkgreen;
   -webkit-box-shadow: 0 0 30px 5px darkgreen;
 }
+.count{
+  text-shadow: 0px 1px 1px #4d4d4d;
+	color: #3ac45f;
+	font: 30px 'Helvetica Neue';
+}
+
 .title{
   font:40px 'Helvetica Neue';
   font-weight:bold;

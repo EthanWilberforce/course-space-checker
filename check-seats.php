@@ -30,11 +30,14 @@ for ($x = 0; $x < sizeof($urls); $x++) {
       "Do not reply to this email, this is an unatended mailbox.",
       $headers);
 
+    $tot = explode("\n", fread(fopen("total","r"), 34217728));
+    fwrite(fopen("total","w"),$tot[0] + 1);
+
     //unset elements from array
     unset($urls[$x]);
     unset($emails[$x]);
     unset($courses[$x]);
-    
+
     //Delete and create new emails, courses, and course names files
     unlink("urls");
     unlink("emails");
