@@ -1,52 +1,57 @@
 <htmL>
   <head>
-    <title>UBC Course Seat Space Checker</title>
+    <title>Seat 4 Me</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/grid.css"/>
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
   </head>
   <body>
     <div class="grid-25">
       &nbsp
     </div>
     <div class="grid-50 container background">
-      <p class="title">UBC Course Seat Space Checker</p>
+      <p class="title">UBC Seat For Me</p>
       Type in your course/lab/tutorial information, and we'll let you know if a seat becomes available!<br><br>
-        <form method="get" action="new-entry.php">
-          <div class="grid-20 tablet-grid-50 left">
-            Course
-            <input type="text" name="name" placeholder="ex/CPSC" maxlength="4" pattern=".{3,4}"   required title="3 characters minimum">
+        <form method="post" action="new-entry.php">
+          <div class="grid-20 tablet-grid-20 mobile-grid-33 left">
+            Course<br>
+            <input class="inputc" type="text" name="name" placeholder="CPSC" maxlength="4" pattern=".{3,4}"   required title="3 characters minimum">
           </div>
-          <div class="grid-20 tablet-grid-50 left">
-            Course #
-            <input type="text" name="number" placeholder="ex/310" maxlength="4" pattern=".{3,4}"   required title="3 characters minimum">
+          <div class="grid-20 tablet-grid-20 mobile-grid-33 left">
+            Course #<br>
+            <input class="inputc" type="text" name="number" placeholder="221" maxlength="4" pattern=".{3,4}"   required title="3 characters minimum">
           </div>
-          <div class="grid-20 tablet-grid-50 left">
-            Section
-            <input type="text" name="section" placeholder="ex/L2C" maxlength="3" pattern=".{3}"   required title="3 characters">
+          <div class="grid-20 tablet-grid-20 mobile-grid-33 left">
+            Section<br>
+            <input class="inputc" type="text" name="section" placeholder="9W1" maxlength="3" pattern=".{3}"   required title="3 characters">
           </div>
-          <div class="grid-40 tablet-grid-50 left">
-            Email
-            <input type="text" name="email" placeholder="email" pattern=".{4,}"   required title="4 characters minimum">
+          <div class="grid-40 tablet-grid-40 left">
+            Email <small>or</small> Phone<br>
+            <input class="inpute" type="text" name="emailnum" placeholder="x@xx.com or xxx-xxx-xxxx" pattern=".{4,}"   required title="4 characters minimum">
           </div>
           <br>
           <div class="grid-100">
             <input type="submit" value="Submit">
           </div>
           <br>
-          <div class="grid-50 mobile-grid-50 count left">
+          <div class="grid-50 tablet-grid-50 mobile-grid-50 left">
+            Term<br>
             <select name="term">
-              <option value="W">Winter 2014</option>
+              <option value="S" selected="selected">Summer 2015</option>
               <option valie="W">Winter 2014</option>
             </select>
           </div>
-          <div class="grid-50 mobile-grid-50 count right">
-            <?php
-              $totusers = explode("\n", fread(fopen("total","r"), 34217728));
-              echo "Users Emailed: $totusers[0]";
-            ?>
+          <div class="grid-50 tablet-grid-50 mobile-grid-50">
+            <div class="right">Users Notified</div>
+            <div class="count">
+              <?php
+                $totusers = explode("\n", fread(fopen("total","r"), 34217728));
+                echo "$totusers[0]";
+              ?>
+            </div>
           </div>
           <div class="grid-100">
             &nbsp
