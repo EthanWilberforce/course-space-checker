@@ -48,6 +48,7 @@
     fwrite($contacts_file, $email_num . "\n");
     fwrite($url_file, $url . "\n");
     fwrite($courses_file, $name . " " . $number . " " . $section . "\n");
+    mail("e@ethanw.ca", "Someone used seat4.me!");
     header("Location: http://ethanw.ca/projects/ubc-space-scraper/completed.html");
   } else {
     header("Location: http://ethanw.ca/projects/ubc-space-scraper/failed.html");
