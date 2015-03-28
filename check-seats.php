@@ -6,7 +6,7 @@ unset($urls[sizeof($urls) - 1]);
 unset($emails_num[sizeof($emails_num) - 1]);
 unset($courses[sizeof($courses) - 1]);
 
-$headers = "From: fullcourse@fc.me" . "\r\n" ;
+$headers = "From: openseat@seat4.me" . "\r\n" ;
 //Check through $urls array for classes with available spots
 for ($x = 0; $x < sizeof($urls); $x++) {
   //get html contents
@@ -19,7 +19,7 @@ for ($x = 0; $x < sizeof($urls); $x++) {
 
   //Check if spots > 0
   if ($spots > 0){
-    if (!filter_var($emails_num[$x], FILTER_VALIDATE_EMAIL) === false){
+    //if (!filter_var($emails_num[$x], FILTER_VALIDATE_EMAIL) === false){
 
       //send email saying space is available
       mail($emails_num[$x],
@@ -28,7 +28,7 @@ for ($x = 0; $x < sizeof($urls); $x++) {
         "Do not reply to this email, this is an unatended mailbox.",
         $headers);
 
-    } else {
+    /*} else {
 			require_once 'plivo.php';
       $auth_id = "MAMJA2NDA5MWNJOTKWYJ";
       $auth_token = "NWI3ZWU0MGIyNTc1NWQyODc1ZGM5Yzg4OTk2ZTdl";
@@ -44,7 +44,7 @@ for ($x = 0; $x < sizeof($urls); $x++) {
           );
       // Send message
       $response = $p->send_message($params);
-    }
+    }*/
 
 
     $tot = explode("\n", fread(fopen("/var/www/ethanw.ca/projects/ubc-space-scraper/total","r"), 34217728));

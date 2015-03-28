@@ -2,7 +2,7 @@
   $name = strtoupper(trim($_REQUEST['name']));
   $number = strtoupper(trim($_REQUEST['number']));
   $section = strtoupper(trim($_REQUEST['section']));
-  $email_num0 = trim($_REQUEST['emailnum']);
+  $email_num = trim($_REQUEST['emailnum']);
   $term = strtoupper(trim($_REQUEST['term']));
 
   if ($term === "W"){
@@ -12,11 +12,11 @@
   }
 
 
-  if (!filter_var($email_num0, FILTER_VALIDATE_EMAIL) === false){
-    $email_num = $email_num0;
-  } else {
-    $email_num = preg_replace("/[^0-9]/", "", $email_num0);
-  }
+  //if (!filter_var($email_num0, FILTER_VALIDATE_EMAIL) === false){
+    //$email_num = $email_num0;
+  //} else {
+    //$email_num = preg_replace("/[^0-9]/", "", $email_num0);
+  //}
 
 
   $inv ="The requested section is either no longer offered at UBC Vancouver or is not being offered this session.";
@@ -37,7 +37,7 @@
       && !empty($_POST['section'])
       && !empty($_POST['emailnum'])
       && ((!filter_var($email_num, FILTER_VALIDATE_EMAIL) === false) || (preg_match("/^[0-9]{10}$/", $email_num)))
-      && preg_match("/^[A-Z]{3,4}$/",$name)
+      && preg_match("/^[A-Z]{2,4}$/",$name)
       && preg_match("/^\d{3}[A-Z]?$/",$number)
       && preg_match("/^([A-Z]|\d){3}$/",$section)){
 

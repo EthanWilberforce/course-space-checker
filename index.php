@@ -18,7 +18,7 @@
         <form method="post" action="new-entry.php">
           <div class="grid-20 tablet-grid-20 mobile-grid-33 left">
             Course<br>
-            <input class="inputc" type="text" name="name" placeholder="CPSC" maxlength="4" pattern=".{3,4}"   required title="3 characters minimum">
+            <input class="inputc" type="text" name="name" placeholder="CPSC" maxlength="4" pattern=".{2,4}"   required title="2 characters minimum">
           </div>
           <div class="grid-20 tablet-grid-20 mobile-grid-33 left">
             Course #<br>
@@ -29,8 +29,8 @@
             <input class="inputc" type="text" name="section" placeholder="9W1" maxlength="3" pattern=".{3}"   required title="3 characters">
           </div>
           <div class="grid-40 tablet-grid-40 left">
-            Email <small>or</small> Phone<br>
-            <input class="inpute" type="text" name="emailnum" placeholder="x@xx.com or xxx-xxx-xxxx" pattern=".{4,}"   required title="4 characters minimum">
+            Email <!-- <small>or</small> Phone--><br>
+            <input class="inpute" type="text" name="emailnum" placeholder="x@xx.xxx" pattern=".{4,}"   required title="4 characters minimum">
           </div>
           <br>
           <div class="grid-100">
@@ -45,7 +45,7 @@
             </select>
           </div>
           <div class="grid-50 tablet-grid-50 mobile-grid-50">
-            <div class="right">Users Notified</div>
+            <div class="right">Users</div>
             <div class="count">
               <?php
                 $totusers = explode("\n", fread(fopen("total","r"), 34217728));
