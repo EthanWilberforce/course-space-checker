@@ -22,12 +22,13 @@ for ($x = 0; $x < sizeof($urls); $x++) {
     //if (!filter_var($emails_num[$x], FILTER_VALIDATE_EMAIL) === false){
 
       //send email saying space is available
-      mail($emails_num[$x],
-        $courses[$x] . " has seats available!",
-        "Click the link to claim your seat.\n" . $urls[$x] . "\n\n\n" .
-        "Do not reply to this email, this is an unatended mailbox.",
-        $headers);
+    mail($emails_num[$x],
+      $courses[$x] . " has seats available!",
+      "Click the link to claim your seat.\n" . $urls[$x] . "\n\n\n" .
+      "Do not reply to this email, this is an unatended mailbox.",
+      $headers);
 
+    //Comented out code below and if statement above are SMS implementations
     /*} else {
 			require_once 'plivo.php';
       $auth_id = "MAMJA2NDA5MWNJOTKWYJ";
@@ -45,7 +46,6 @@ for ($x = 0; $x < sizeof($urls); $x++) {
       // Send message
       $response = $p->send_message($params);
     }*/
-
 
     $tot = explode("\n", fread(fopen("/var/www/ethanw.ca/projects/ubc-space-scraper/total","r"), 34217728));
     fwrite(fopen("/var/www/ethanw.ca/projects/ubc-space-scraper/total","w"),$tot[0] + 1);

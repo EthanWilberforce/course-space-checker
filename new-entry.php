@@ -14,9 +14,6 @@
   $url = "https://courses.students.ubc.ca/cs/main?sessyr=" . $year . "&sesscd=" . $term . "&" . "pname=subjarea&tname=subjareas&req=5&dept=" . $name . "&course=" . $number . "&section=" . $section;
   $html = file_get_contents($url);
 
-  fwrite(fopen("test","x+"), (!filter_var($email_num, FILTER_VALIDATE_EMAIL) === false) . preg_match("/^[0-9]{10}$/", $email_num));
-
-
   if (strpos($html, $inv) !== false){
     header("Location: http://ethanw.ca/projects/ubc-space-scraper/failed.html");
   } elseif (!empty($_POST['name'])
@@ -35,7 +32,6 @@
     fwrite($contacts_file, $email_num . "\n");
     fwrite($url_file, $url . "\n");
     fwrite($courses_file, $name . " " . $number . " " . $section . "\n");
-    mail("e@ethanw.ca", "Someone used seat4.me!");
     header("Location: http://ethanw.ca/projects/ubc-space-scraper/completed.html");
   } else {
     header("Location: http://ethanw.ca/projects/ubc-space-scraper/failed.html");
