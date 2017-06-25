@@ -13,7 +13,7 @@ for ($x = 0; $x < sizeof($urls); $x++) {
   $html = file_get_contents($urls[$x]);
 
   //get spots left
-  $a = explode("Total Seats Remaining:</td><td align=left><strong>", $html);
+  $a = explode("Total Seats Remaining:</td><td align=&#39;left&#39;><strong>", $html);
   $b = explode("</strong>", $a[1])[0];
   $spots = intval($b);
 
