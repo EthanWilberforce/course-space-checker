@@ -40,8 +40,7 @@
           <div class="grid-50 tablet-grid-50 mobile-grid-50 left">
             Term<br>
             <select name="term">
-              <option value="S2015" selected="selected">Summer 2015</option>
-              <option value="W2015">Winter 2015</option>
+              <option value="W2017" selected="selected">Winter 2017</option>
             </select>
           </div>
           <div class="grid-50 tablet-grid-50 mobile-grid-50">
