@@ -1,10 +1,4 @@
-
 #!/bin/bash
-
-
-
-
-
 A='{"body":" Click the link to claim your seat.\n'
 B='","title":"'
 C=' has seats available!","type":"link","url":"'
