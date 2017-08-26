@@ -24,7 +24,7 @@ for ($x = 0; $x < sizeof($urls); $x++) {
   if ($spots > 0){
     // send pushbullet if user is registered in the map
     if (!empty($data[$emails_num[$x]])) {
-      $cmd = "./sendPushbullet.sh " . $data[$emails_num[$x]] . ' "' . $courses[$x] . '" ' . $urls[$x] . ' > log';
+      $cmd = "./sendPushbullet.sh " . $data[$emails_num[$x]] . ' "' . $courses[$x] . '" "' . $urls[$x] . '" > log';
       shell_exec($cmd);
     }
 
