@@ -1,7 +1,7 @@
 <?php
-$urls = explode("\n", fread(fopen("/var/www/ethanw.ca/projects/ubc-space-scraper/urls","r"), 34217728));
-$emails_num = explode("\n", fread(fopen("/var/www/ethanw.ca/projects/ubc-space-scraper/contacts","r"), 34217728));
-$courses = explode("\n", fread(fopen("/var/www/ethanw.ca/projects/ubc-space-scraper/courses","r"), 34217728));
+$urls = explode("\n", fread(fopen("urls","r"), 34217728));
+$emails_num = explode("\n", fread(fopen("contacts","r"), 34217728));
+$courses = explode("\n", fread(fopen("courses","r"), 34217728));
 unset($urls[sizeof($urls) - 1]);
 unset($emails_num[sizeof($emails_num) - 1]);
 unset($courses[sizeof($courses) - 1]);
@@ -11,7 +11,6 @@ $data = array();
 $data["ethan.wilberforce@gmail.com"] = 'o.h7vQQXAcHfdejP7bhZdfjhsQa2069zga';
 $data["kellyleacarleton@gmail.com"] = 'o.wbUfOlk75wfRXPp9C1ZwlmhuNvtpbMhd';
 
-$headers = "From: openseat@seat4.me" . "\r\n" ;
 //Check through $urls array for classes with available spots
 for ($x = 0; $x < sizeof($urls); $x++) {
   //get html contents
@@ -25,12 +24,12 @@ for ($x = 0; $x < sizeof($urls); $x++) {
   if ($spots > 0){
     // send pushbullet if user is registered in the map
     if (!empty($data[$emails_num[$x]])) {
-      $cmd = "./../../../../../../../../../../../../var/www/ethanw.ca/projects/ubc-space-scraper/sendPushbullet.sh " . $data[$emails_num[$x]] . ' "' . $courses[$x] . '" ' . $urls[$x] . ' > log';
+      $cmd = "./sendPushbullet.sh " . $data[$emails_num[$x]] . ' "' . $courses[$x] . '" ' . $urls[$x] . ' > log';
       shell_exec($cmd);
     }
 
-    $tot = explode("\n", fread(fopen("/var/www/ethanw.ca/projects/ubc-space-scraper/total","r"), 34217728));
-    fwrite(fopen("/var/www/ethanw.ca/projects/ubc-space-scraper/total","w"),$tot[0] + 1);
+    $tot = explode("\n", fread(fopen("total","r"), 34217728));
+    fwrite(fopen("total","w"),$tot[0] + 1);
 
     //unset elements from array
     unset($urls[$x]);
@@ -38,26 +37,26 @@ for ($x = 0; $x < sizeof($urls); $x++) {
     unset($courses[$x]);
 
     //Delete and create new emails, courses, and course names files
-    unlink("/var/www/ethanw.ca/projects/ubc-space-scraper/urls");
-    unlink("/var/www/ethanw.ca/projects/ubc-space-scraper/contacts");
-    unlink("/var/www/ethanw.ca/projects/ubc-space-scraper/courses");
-    $newurls = fopen("/var/www/ethanw.ca/projects/ubc-space-scraper/urls","x+");
-    $newcontacts = fopen("/var/www/ethanw.ca/projects/ubc-space-scraper/contacts","x+");
-    $newcourses = fopen("/var/www/ethanw.ca/projects/ubc-space-scraper/courses","x+");
+    unlink("urls");
+    unlink("contacts");
+    unlink("courses");
+    $newurls = fopen("urls","x+");
+    $newcontacts = fopen("contacts","x+");
+    $newcourses = fopen("courses","x+");
     //Set file permissions
-    chmod("/var/www/ethanw.ca/projects/ubc-space-scraper/urls", 0666);
-    chmod("/var/www/ethanw.ca/projects/ubc-space-scraper/contacts", 0666);
-    chmod("/var/www/ethanw.ca/projects/ubc-space-scraper/courses", 0666);
+    chmod("urls", 0666);
+    chmod("contacts", 0666);
+    chmod("courses", 0666);
 
     //Write unused data to files
     foreach ($urls as $url){
-        fwrite(fopen("/var/www/ethanw.ca/projects/ubc-space-scraper/urls","a+"), $url . "\n");
+        fwrite(fopen("urls","a+"), $url . "\n");
     }
     foreach ($emails_num as $email_num){
-        fwrite(fopen("/var/www/ethanw.ca/projects/ubc-space-scraper/contacts","a+"), $email_num . "\n");
+        fwrite(fopen("contacts","a+"), $email_num . "\n");
     }
     foreach ($courses as $course){
-        fwrite(fopen("/var/www/ethanw.ca/projects/ubc-space-scraper/courses","a+"), $course . "\n");
+        fwrite(fopen("courses","a+"), $course . "\n");
     }
   }
 }
