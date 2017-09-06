@@ -17,14 +17,13 @@ input[type=text]{
   margin: 0 0 10px 0;
   width:100%;
 }
-input[type=submit] {
+/* submit[type=submit] didnt work so this is a workaround */
+.submit {
   padding:5px 15px;
   background:#003362;
   color:white;
   border:0 none;
   cursor:pointer;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
   border-color:#003362;
   height:40px;
   width:150px;
@@ -41,6 +40,7 @@ select{
   border-radius: 1px;*/
   height: 40px;
 }
+
 
 .background {
   margin-top: 10px;

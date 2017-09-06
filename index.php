@@ -34,7 +34,7 @@
           </div>
           <br>
           <div class="grid-100">
-            <input type="submit" value="Submit">
+            <input class="submit" type="submit" value="Submit">
           </div>
           <br>
           <div class="grid-50 tablet-grid-50 mobile-grid-50 left">
