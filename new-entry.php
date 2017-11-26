@@ -15,7 +15,7 @@
   $html = file_get_contents($url);
 
   if (strpos($html, $inv) !== false){
-    header("Location: http://ethanw.ca/projects/ubc-space-scraper/failed.html");
+    header("Location: http://ethw.ca/projects/ubc-space-scraper/failed.html");
   } elseif (!empty($_POST['name'])
       && !empty($_POST['number'])
       && !empty($_POST['section'])
@@ -32,8 +32,8 @@
     fwrite($contacts_file, $email_num . "\n");
     fwrite($url_file, $url . "\n");
     fwrite($courses_file, $name . " " . $number . " " . $section . "\n");
-    header("Location: http://ethanw.ca/projects/ubc-space-scraper/completed.html");
+    header("Location: http://ethw.ca/projects/ubc-space-scraper/completed.html");
   } else {
-    header("Location: http://ethanw.ca/projects/ubc-space-scraper/failed.html");
+    header("Location: http://ethw.ca/projects/ubc-space-scraper/failed.html");
   }
 ?>
